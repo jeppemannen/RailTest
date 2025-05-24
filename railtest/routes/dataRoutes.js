@@ -17,7 +17,7 @@ router.get('/items', async (req, res) => {
 router.get("/biler", async (req, res) => {
   try {
     const bilers = await Biler.find();
-    res.json(items);
+    res.json(bilers);
   }catch (err) {
     console.error("Skibbedy no Cars");
     res.status(500).json({error: "not bil"})
