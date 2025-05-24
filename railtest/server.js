@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 // Routes
-app.use('/api/items', require('./routes/dataRoutes'));
+app.use('/api/sample_mflix', require('./routes/dataRoutes'));
 
 // Start server
 const PORT = process.env.PORT || 3000;
