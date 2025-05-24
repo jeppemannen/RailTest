@@ -10,6 +10,9 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
+  console.log(mongoose.connection.name);  // Logs the name of the database connected
+
+
 // Routes
 app.use('/api/items', require('./routes/dataRoutes'));
 
