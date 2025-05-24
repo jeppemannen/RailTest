@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Movie = require("../models/movie"); // ✅ Import the correct model
+const Movie = require("../models/Movie")// ✅ Import the correct model
 
 // GET movies
 router.get('/', async (req, res) => {
