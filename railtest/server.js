@@ -6,11 +6,16 @@ const app = express();
 app.use(express.json());
 
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log(err));
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log('MongoDB connected');
 
-  console.log(mongoose.connection.name);  // Logs the name of the database connected
+    // Wait until the connection is fully open to log the DB name
+    mongoose.connection.once('open', () => {
+      console.log('Connected to DB:', mongoose.connection.name);
+    });
+  })
+  .catch(err => console.error('MongoDB connection error:', err));
 
 
 // Routes
